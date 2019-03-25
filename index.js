@@ -3,6 +3,7 @@ const request = require('request');
 const opn = require('opn');
 
 const sendRequest = function () {
+  console.log('Checking for new match tickets');
   var options = { method: 'POST',
     url: 'https://tickets.royalchallengers.com/MatchList.aspx/LoadEvents',
     headers:
@@ -42,6 +43,8 @@ const sendRequest = function () {
           opn('https://tickets.royalchallengers.com/BuyTickets/Season-12');
         }
       });
+    } else {
+      console.log('Sorry!!! No new match tickets');	
     }
   });
 };
@@ -49,4 +52,4 @@ const sendRequest = function () {
 sendRequest();
 
 // Check for every 5 min
-setTimeout(sendRequest, 300000);
+setInterval(sendRequest, 300000);
