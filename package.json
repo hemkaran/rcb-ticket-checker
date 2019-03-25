@@ -1,0 +1,14 @@
+{
+  "name": "rcb_tickets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "node-notifier": "^5.4.0",
+    "opn": "^5.5.0",
+    "request": "^2.88.0"
+  }
+}
