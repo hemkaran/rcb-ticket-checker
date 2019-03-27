@@ -26,7 +26,7 @@ const sendRequest = function () {
     if (error) throw new Error(error);
     
     const data = JSON.parse(body);
-    if (data.d.length > 3) {
+    if (data.d.length > 3 && data.d[0].EVENT_CODE !== 3) {
       notifier.notify({
         'title': 'RCB Tickets',
         'subtitle': 'Daily Maintenance',
@@ -35,16 +35,15 @@ const sendRequest = function () {
         'contentImage': 'blog.png',
         'sound': 'ding.mp3',
         'wait': true,
-        closeLabel: 'Dismiss', // String. Label for cancel button
+        closeLabel: 'Dismiss',
         actions: 'Buy Now',
       }, (err, response) => {
-        console.log(response);
         if(response === 'activate') {
           opn('https://tickets.royalchallengers.com/BuyTickets/Season-12');
         }
       });
     } else {
-      console.log('Sorry!!! No new match tickets');	
+      console.log('Sorry!!! No new match tickets');
     }
   });
 };
