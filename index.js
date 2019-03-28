@@ -26,7 +26,7 @@ const sendRequest = function () {
     if (error) throw new Error(error);
     
     const data = JSON.parse(body);
-    if (data.d.length > 3 && data.d[0].EVENT_CODE !== 3) {
+    if (data.d.length > 2 && data.d[0].EVENT_CODE !== 3) {
       notifier.notify({
         'title': 'RCB Tickets',
         'subtitle': 'Daily Maintenance',
